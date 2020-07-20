@@ -36,7 +36,7 @@ export class UserService {
       .pipe(
         map((resp: any) => {
           if (resp == "OK") {
-            this._alertService.showAlertDissmiss(MESSAGE.success, MESSAGE.important);
+            this._alertService.showAlertDissmiss(MESSAGE.success, '');
             this.getUserList();
           } else {
             this._alertService.showAlert(TYPE_ALERT.ERROR, MESSAGE.error, MESSAGE.ups);
@@ -56,7 +56,7 @@ export class UserService {
       .pipe(
         map((resp: any) => {
           if (resp == "OK") {
-            this._alertService.showAlertDissmiss(MESSAGE.delete, MESSAGE.important);
+            this._alertService.showAlertDissmiss(MESSAGE.delete, '');
             this.getUserList();
           } else {
             this._alertService.showAlert(TYPE_ALERT.ERROR, MESSAGE.error, MESSAGE.ups);
