@@ -32,6 +32,7 @@ export class UserService {
 
   saveUser = (data: User) => {
     let url = `${URL_ROUTES.URL_API}${'User/Save'}`
+    $("#ProcesoAjax").show();
     return this.http.post(url, data)
       .pipe(
         map((resp: any) => {
@@ -41,10 +42,12 @@ export class UserService {
           } else {
             this._alertService.showAlert(TYPE_ALERT.ERROR, MESSAGE.error, MESSAGE.ups);
           }
+          $("#ProcesoAjax").hide();
           return resp;
         })
         , catchError(error => {
           this._alertService.showAlert(TYPE_ALERT.ERROR, MESSAGE.error, MESSAGE.ups);
+          $("#ProcesoAjax").hide();
           return Observable.throw(error);
         })
       );
@@ -52,6 +55,7 @@ export class UserService {
 
   deleteUser = (data: User) => {
     let url = `${URL_ROUTES.URL_API}${'User/Delete'}`
+    $("#ProcesoAjax").show();
     return this.http.post(url, data)
       .pipe(
         map((resp: any) => {
@@ -61,10 +65,12 @@ export class UserService {
           } else {
             this._alertService.showAlert(TYPE_ALERT.ERROR, MESSAGE.error, MESSAGE.ups);
           }
+          $("#ProcesoAjax").hide();
           return resp;
         })
         , catchError(error => {
           this._alertService.showAlert(TYPE_ALERT.ERROR, MESSAGE.error, MESSAGE.ups);
+          $("#ProcesoAjax").hide();
           return Observable.throw(error);
         })
       );
@@ -72,12 +78,15 @@ export class UserService {
 
   getUserList = () => {
     let url = `${URL_ROUTES.URL_API}User/GetList`
+    $("#ProcesoAjax").show();
     this.http.get(url)
       .pipe(
         map((resp: any) => {
           this.dataUsers$.emit(resp);
+          $("#ProcesoAjax").hide();
         })
         , catchError(error => {
+          $("#ProcesoAjax").hide();
           return Observable.throw(error);
         })
       ).subscribe();
