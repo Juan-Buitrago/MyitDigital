@@ -1,0 +1,148 @@
+<div class="card">
+  <div class="card-header">
+    Formulario datos personales
+  </div>
+  <div class="card-body">
+    <form [formGroup]="form" novalidate>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <small class="pull-left">
+            <span class="text-danger" *ngIf="form.controls['Name'].errors?.required && this.form.get('Name').touched">*
+            </span>
+            Nombres:
+          </small>
+          <input type="text" class="form-control form-control-sm"
+            [class.is-invalid]="form.get('Name').invalid && form.get('Name').touched" formControlName="Name">
+          <span class="text-danger" *ngIf="form.controls['Name'].errors?.minlength && this.form.get('Name').touched">
+            Mínimo {{ form.controls['Name'].errors?.minlength.requiredLength}} caracteres.
+          </span>
+          <span *ngIf="form.controls['Name'].errors?.pattern && !form.controls['Name'].untouched" class="text-danger">
+            Sólo números o letras
+          </span>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <small class="pull-left">
+            <span class="text-danger"
+              *ngIf="form.controls['LastName'].errors?.required && this.form.get('LastName').touched">*
+            </span>
+            Apellidos:
+          </small>
+          <input type="text" class="form-control form-control-sm"
+            [class.is-invalid]="form.get('LastName').invalid && form.get('LastName').touched"
+            formControlName="LastName">
+          <span class="text-danger"
+            *ngIf="form.controls['LastName'].errors?.minlength && this.form.get('LastName').touched">
+            Mínimo {{ form.controls['LastName'].errors?.minlength.requiredLength}} caracteres.
+          </span>
+          <span *ngIf="form.controls['LastName'].errors?.pattern && !form.controls['LastName'].untouched"
+            class="text-danger">
+            Sólo números o letras
+          </span>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <small class="pull-left">
+            <span class="text-danger" *ngIf="form.controls['Dni'].errors?.required && this.form.get('Dni').touched">*
+            </span>
+            DNI:
+          </small>
+          <input type="text" class="form-control form-control-sm"
+            [class.is-invalid]="form.get('Dni').invalid && form.get('Dni').touched" formControlName="Dni">
+          <span class="text-danger" *ngIf="form.controls['Dni'].errors?.minlength && this.form.get('Dni').touched">
+            Mínimo {{ form.controls['Dni'].errors?.minlength.requiredLength}} caracteres.
+          </span>
+          <span *ngIf="form.controls['Dni'].errors?.pattern && !form.controls['Dni'].untouched" class="text-danger">
+            Sólo números o letras
+          </span>
+        </div>
+        <div class="form-group col-md-6">
+          <small class="pull-left">
+            <span class="text-danger"
+              *ngIf="form.controls['NetworkUser'].errors?.required && this.form.get('NetworkUser').touched">*
+            </span>
+            Usuario Red:
+          </small>
+          <input type="text" class="form-control form-control-sm"
+            [class.is-invalid]="form.get('NetworkUser').invalid && form.get('NetworkUser').touched"
+            formControlName="NetworkUser">
+          <span class="text-danger"
+            *ngIf="form.controls['NetworkUser'].errors?.minlength && this.form.get('NetworkUser').touched">
+            Mínimo {{ form.controls['NetworkUser'].errors?.minlength.requiredLength}} caracteres.
+          </span>
+          <span *ngIf="form.controls['NetworkUser'].errors?.pattern && !form.controls['NetworkUser'].untouched"
+            class="text-danger">
+            Sólo números o letras
+          </span>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <small class="pull-left">
+            <span class="text-danger"
+              *ngIf="form.controls['Email'].errors?.required && this.form.get('Email').touched">*
+            </span>
+            Correo:
+          </small>
+          <input type="text" class="form-control form-control-sm"
+            [class.is-invalid]="form.get('Email').invalid && form.get('Email').touched" formControlName="Email">
+          <span class="text-danger" *ngIf="form.controls['Email'].errors?.minlength && this.form.get('Email').touched">
+            Mínimo {{ form.controls['Email'].errors?.minlength.requiredLength}} caracteres.
+          </span>
+          <span *ngIf="form.controls['Email'].errors?.pattern && !form.controls['Email'].untouched" class="text-danger">
+            Sólo números o letras
+          </span>
+        </div>
+        <div class="form-group col-md-6">
+          <small class="pull-left">
+            <span class="text-danger"
+              *ngIf="form.controls['BirthDate'].errors?.required && this.form.get('BirthDate').touched">*
+            </span>
+            Fecha Nacimiento:
+          </small>
+          <input type="date" class="form-control form-control-sm"
+            [class.is-invalid]="form.get('BirthDate').invalid && form.get('BirthDate').touched"
+            formControlName="BirthDate">
+          <span class="text-danger"
+            *ngIf="form.controls['BirthDate'].errors?.minlength && this.form.get('BirthDate').touched">
+            Mínimo {{ form.controls['BirthDate'].errors?.minlength.requiredLength}} caracteres.
+          </span>
+          <span *ngIf="form.controls['BirthDate'].errors?.pattern && !form.controls['BirthDate'].untouched"
+            class="text-danger">
+            Sólo números o letras
+          </span>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <small class="pull-left">
+            <span class="text-danger"
+              *ngIf="form.controls['LowDate'].errors?.required && this.form.get('LowDate').touched">*
+            </span>
+            Fecha Baja:
+          </small>
+          <input type="date" class="form-control form-control-sm"
+            [class.is-invalid]="form.get('LowDate').invalid && form.get('LowDate').touched" formControlName="LowDate">
+          <span class="text-danger"
+            *ngIf="form.controls['LowDate'].errors?.minlength && this.form.get('LowDate').touched">
+            Mínimo {{ form.controls['LowDate'].errors?.minlength.requiredLength}} caracteres.
+          </span>
+          <span *ngIf="form.controls['LowDate'].errors?.pattern && !form.controls['LowDate'].untouched"
+            class="text-danger">
+            Sólo números o letras
+          </span>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <div class="form-actions">
+            <button class="btn btn-info mr-3 btn-sm" (click)="sendForm()">Guardar</button>
+            <button class="btn btn-light btn-sm" (click)="cleanForm()">Limpiar</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
